@@ -1,0 +1,7 @@
+<h1>Doses#show</h1>
+<p>Find me in app/views/doses/show.html.erb</p>
+
+<h2> <%= @dose.description %> </h2>
+<p><%= link_to "edit", edit_dose_path(@dose) %> - <%= link_to "delete", dose_path(@dose), method: 'delete' %></p>
+
+<p><%= link_to "See all doses", doses_path %></p>

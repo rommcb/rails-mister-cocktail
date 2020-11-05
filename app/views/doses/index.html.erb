@@ -1,0 +1,11 @@
+<h1>Doses</h1>
+
+<ul>
+<% @doses.each do |doses|%>
+
+<li><%= link_to doses.description, doses_path(doses) %> | <%= link_to "edit", edit_doses_path(doses) %> - <%= link_to "delete", doses_path(doses), method: 'delete' %></li>
+
+<% end %>
+</ul>
+
+<p><%= link_to "Add a dose", doses_new_path %></p>

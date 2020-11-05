@@ -1,0 +1,7 @@
+<h1>Cocktails#show</h1>
+<p>Find me in app/views/cocktails/show.html.erb</p>
+
+<h2> <%= @cocktail.name %> </h2>
+<p><%= link_to "edit", edit_cocktail_path(@cocktail) %> - <%= link_to "delete", cocktail_path(@cocktail), method: 'delete' %></p>
+
+<p><%= link_to "See all cocktails", cocktails_path %></p>
