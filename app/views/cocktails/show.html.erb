@@ -1,7 +1,19 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<p><%= link_to "cocktails", cocktails_path%> > <%= @cocktail.name %></p>
 
-<h2> <%= @cocktail.name %> </h2>
-<p><%= link_to "edit", edit_cocktail_path(@cocktail) %> - <%= link_to "delete", cocktail_path(@cocktail), method: 'delete' %></p>
+<h1> <%= @cocktail.name %> </h1>
+<p><%= link_to "rename", edit_cocktail_path(@cocktail) %> - <%= link_to "delete", cocktail_path(@cocktail), method: 'delete', data: { confirm: "Are you sure you want to delete this cocktail? " } %></p>
 
-<p><%= link_to "See all cocktails", cocktails_path %></p>
+<h2>Recipe</h2>
+<ul>
+<% @cocktail.doses.each do |dose|%>
+<li> <%= dose.description%> of <%= dose.ingredient.name %> | <%= link_to "delete" , dose_path(dose), method: 'delete', data: { confirm: "Are you sure you want to delete this dose?" } %>  </li>
+<%end%>
+</ul>
+
+<h3>Add an ingredient</h3>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

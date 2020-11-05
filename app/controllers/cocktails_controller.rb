@@ -5,6 +5,7 @@ before_action :find_cocktail, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @dose = Dose.new
   end
 
   def new

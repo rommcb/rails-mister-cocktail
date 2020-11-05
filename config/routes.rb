@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :doses, only: [:destroy]
   
   # resources :cocktails, concerns: :dose
-  # resources :ingredients, concerns: :dose
+  resources :ingredients, only: [:index, :destroy]
 
 end
