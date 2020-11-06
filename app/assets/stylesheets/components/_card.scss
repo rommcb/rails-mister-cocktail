@@ -16,7 +16,10 @@
 }
 
 .card-trip:hover .learn-more {
-    opacity: 1 !important;
+    opacity: 0.7 !important;
+    &:hover {
+      opacity: 1 !important;
+    }
 }
 
 .card-trip {
@@ -25,10 +28,6 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: block;
     position: relative;
-
-    &:hover {
-        background: linear-gradient(45deg, blue, red);
-    }
   }
 
   .add-a-cocktail {
@@ -36,13 +35,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    a {
+      background: linear-gradient(45deg, blue, red);
+      color: white;
+      border-color: white;
+      &:hover {
+        color: white;
+      }
+    }
 }
   
-  .card-trip > img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
+
+
+.card-trip .card-img {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+
+.card-trip:hover .card-img {
+  background: linear-gradient(45deg, blue, red) !important;
+}
   
   .card-trip h2 {
     font-size: 16px;
