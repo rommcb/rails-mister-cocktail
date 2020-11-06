@@ -8,7 +8,13 @@
         <%= link_to cocktail_path(cocktail), class: 'card-trip' do %>
           <div class="card-trip">
           <p class="btn btn-ghost-white learn-more">Learn more</p>
-            <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg'); transition: background 0.3s ease;">
+            <div class="card-img" style="background-image: url(
+            <% if cocktail.photo.attached? %>
+            <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+            <%else%>
+            <%='https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %>
+            <% end %>
+            ); transition: background 0.3s ease;">
             </div>
             <div class="card-trip-infos">
                 <div>
